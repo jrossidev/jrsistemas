@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <title>Gerador de Contrato Completo (PDF)</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+    <link rel="stylesheet" href="../css/modules/anexo.css">
+    </head>
+    <body>
+    <div class="wrap">
+      <div class="panel" role="main">
+        <div class="header">
+          <div class="brand">
+            <img id="headerLogo" alt="Logo Benali">
+            <div>
+              <h1>Gerador de Contrato</h1>
+            </div>
+          </div>
+        </div>
+        
+        <div id="alertContainer"></div>
+    
+        <div class="content">
+          <div class="formCard" aria-labelledby="form-title">
+            <form id="contratoForm" autocomplete="off" onsubmit="return false;">
+              <fieldset>
+                <legend>Dados da Locatária (Cliente)</legend>
+                <div class="grid">
+                  <div>
+                    <label for="razao_social_cliente">Nome / Razão Social</label>
+                    <input id="razao_social_cliente" type="text" placeholder="Ex: Fulano da Silva LTDA">
+                  </div>
+                  <div>
+                    <label for="cnpj_cliente">CPF / CNPJ</label>
+                    <input id="cnpj_cliente" type="text" placeholder="CPF ou CNPJ">
+                  </div>
+                  <div>
+                    <label for="ie_cliente">RG / Insc. Estadual</label>
+                    <input id="ie_cliente" type="text" placeholder="RG ou inscrição">
+                  </div>
+                  <div>
+                    <label for="cep_cliente">CEP</label>
+                    <input id="cep_cliente" type="text" placeholder="00000-000" maxlength="9">
+                  </div>
+                  <div class="full">
+                    <label for="endereco_cliente">Endereço / n.º</label>
+                    <input id="endereco_cliente" type="text" placeholder="Rua, Av., número, complemento">
+                  </div>
+                  <div>
+                    <label for="bairro_cliente">Bairro</label>
+                    <input id="bairro_cliente" type="text">
+                  </div>
+                  <div>
+                    <label for="cidade_uf_cliente">Cidade / UF</label>
+                    <input id="cidade_uf_cliente" type="text" placeholder="Cidade / UF">
+                  </div>
+                  <div>
+                    <label for="telefone_cliente">Telefone</label>
+                    <input id="telefone_cliente" type="text" placeholder="(00) 00000-0000">
+                  </div>
+                  <div class="full">
+                    <label for="email_cliente">E-mail</label>
+                    <input id="email_cliente" type="text" placeholder="exemplo@dominio.com">
+                  </div>
+                </div>
+              </fieldset>
+    
+              <fieldset>
+                <legend>Dados do Condutor</legend>
+                <div class="grid">
+                  <div>
+                    <label for="nome_condutor">Nome Completo</label>
+                    <input id="nome_condutor" type="text">
+                  </div>
+                  <div>
+                    <label for="cpf_condutor">CPF</label>
+                    <input id="cpf_condutor" type="text" maxlength="14" placeholder="000.000.000-00">
+                  </div>
+                  <div class="full">
+                    <label for="rg_condutor">RG</label>
+                    <input id="rg_condutor" type="text">
+                  </div>
+                </div>
+              </fieldset>
+    
+              <fieldset>
+                <legend>Dados do Veículo</legend>
+                <div class="grid">
+                  <div>
+                    <label for="modelo_veiculo">Veículo / Cor</label>
+                    <input id="modelo_veiculo" type="text" placeholder="Ex: Saveiro Robust - Rosa ">
+                  </div>
+                  <div>
+                    <label for="ano_veiculo">Ano / Modelo</label>
+                    <input id="ano_veiculo" type="text" placeholder="2020/2021">
+                  </div>
+                  <div>
+                    <label for="placa_veiculo">Placa</label>
+                    <input id="placa_veiculo" type="text" placeholder="ABC0D00">
+                  </div>
+                  <div>
+                    <label for="chassi_veiculo">Chassi</label>
+                    <input id="chassi_veiculo" type="text">
+                  </div>
+                  <div class="full">
+                    <label for="renavam_veiculo">Renavam</label>
+                    <input id="renavam_veiculo" type="text">
+                  </div>
+                </div>
+              </fieldset>
+    
+              <fieldset>
+                <legend>Dados Financeiros e Prazos</legend>
+                <div class="grid">
+                  <div>
+                    <label for="inicio_contrato">Início da Locação</label>
+                    <input id="inicio_contrato" type="text" maxlength="10" placeholder="dd/mm/aaaa">
+                  </div>
+                  <div>
+                    <label for="duracao_dias">Duração (dias)</label>
+                    <input id="duracao_dias" type="number" min="1" value="30">
+                  </div>
+                  <div>
+                    <label for="fim_contrato">Término (calculado)</label>
+                    <input id="fim_contrato" type="text" maxlength="10" placeholder="dd/mm/aaaa">
+                  </div>
+                  <div class="full" style="display:flex; gap:10px;">
+                    <button type="button" class="btnGhost" onclick="calcularDataFinal()" style="width:170px;">Calcular Data Final</button>
+                    <div style="flex:1;"></div>
+                  </div>
+                  <div>
+                    <label for="valor_mensal">Valor Mensal (R$)</label>
+                    <input id="valor_mensal" type="text" placeholder="0,00">
+                  </div>
+                  <div>
+                    <label for="km_incluido">Franquia de KM</label>
+                    <input id="km_incluido" type="text" value="4.000">
+                  </div>
+                  <div>
+                    <label for="valor_km_excedente">Valor KM Excedente (R$)</label>
+                    <input id="valor_km_excedente" type="text" value="1,19">
+                  </div>
+    
+                  <div style="display:flex; gap:10px; align-items:center;">
+                    <div style="flex:1;">
+                      <label>Exigir caução</label>
+                      <div class="switch" id="exigir_caucao_switch" role="switch" aria-checked="true" tabindex="0">
+                        <div class="knob"></div>
+                      </div>
+                    </div>
+                    <div style="flex:2;">
+                      <label for="valor_caucao">Valor da Caução (R$)</label>
+                      <input id="valor_caucao" type="text" placeholder="0,00">
+                    </div>
+                  </div>
+    
+                  <div class="full">
+                    <p class="fieldNote">Se a opção "Exigir caução" estiver desmarcada, o campo de valor da caução será ocultado e a numeração das cláusulas será ajustada automaticamente (3.3 → 3.2).</p>
+                  </div>
+    
+                </div>
+              </fieldset>
+            </form>
+    
+            <div style="display:flex; gap:12px; margin-top:6px;">
+              <button class="btnPrimary" onclick="gerarPDF()">Gerar Contrato em PDF</button>
+              <button class="btnGhost" onclick="resetForm()">Limpar</button>
+            </div>
+          </div>
+    
+          <aside class="sideCard">
+            <h3 style="margin:0 0 8px 0;">Opções Rápidas</h3>
+            <p class="muted" style="margin-top:0;">Ajuste percentuais e limites do seguro antes de gerar o contrato.</p>
+    
+            <div style="margin-top:12px;">
+              <label for="percent_perda_total">Percentual para perda total (%)</label>
+              <input id="percent_perda_total" type="number" min="0" max="100" value="50">
+            </div>
+    
+            <div style="margin-top:12px;">
+              <label for="vida_pneu_km">Vida útil do pneu (km)</label>
+              <input id="vida_pneu_km" type="number" min="0" value="40.000">
+            </div>
+    
+            <div style="margin-top:12px;">
+              <label for="limite_dm">Seguro — Danos Materiais (R$)</label>
+              <input id="limite_dm" type="text" value="100.000,00">
+            </div>
+    
+            <div style="margin-top:12px;">
+              <label for="limite_dc">Seguro — Danos Corporais (R$)</label>
+              <input id="limite_dc" type="text" value="100.000,00">
+            </div>
+    
+            <div class="divider"></div>
+    
+            <div style="display:flex; gap:10px; align-items:center; justify-content:space-between;">
+              <div>
+                <div style="font-weight:700;">Visualizar antes</div>
+                <div class="muted" style="font-size:13px;">Clique em gerar para baixar o PDF com todas as cláusulas.</div>
+              </div>
+              <div style="text-align:right;">
+                <button class="btnPrimary" style="padding:8px 12px; font-size:13px;" onclick="gerarPDF()">Baixar PDF</button>
+              </div>
+            </div>
+    
+            <div class="divider"></div>
+            <div class="helper">Dica: preencha Nome, Placa e Condutor antes de gerar.</div>
+          </aside>
+        </div>
+    
+        <footer>
+          &copy; João Rossi 2026.
+        </footer>
+      </div>
+    </div>
+    
+    <script src="../js/modules/anexo.js" defer></script>
+    </body>
+    </html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador Contratual Unicampo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+    
+    <link rel="stylesheet" href="../css/modules/contrato.css">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <button type="button" id="btnConfig" class="gear-btn" aria-label="Configurações avançadas" title="Configurações avançadas">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+        </button>
+        <img id="headerLogo" class="logo-display" alt="Logo Benali">
+        <h1>Contrato Unicampo</h1>
+        <p class="subtitle">Contrato + Multas + Informativo</p>
+    </header>
+
+    <div id="alertContainer"></div>
+
+    <form id="contratoForm" autocomplete="off" onsubmit="return false;">
+        
+        <fieldset>
+            <legend>Dados do Veículo</legend>
+            <div class="input-grid">
+                <div class="full-width">
+                    <label for="modelo_veiculo">Veículo / Cor</label>
+                    <input type="text" id="modelo_veiculo" aria-label="Modelo e cor do veículo" placeholder="Ex: Saveiro Robust 1.6 CS - Prata">
+                    <span class="error-message" id="err-modelo_veiculo"></span>
+                </div>
+                <div>
+                    <label for="ano_veiculo">Ano / Modelo</label>
+                    <input type="text" id="ano_veiculo" aria-label="Ano e modelo do veículo" placeholder="">
+                </div>
+                <div>
+                    <label for="placa_veiculo">Placa</label>
+                    <input type="text" id="placa_veiculo" aria-label="Placa do veículo" style="text-transform: uppercase;" placeholder="ABC0D00">
+                    <span class="error-message" id="err-placa_veiculo"></span>
+                </div>
+                <div>
+                    <label for="chassi_veiculo">Chassi</label>
+                    <input type="text" id="chassi_veiculo" aria-label="Número do chassi">
+                </div>
+                <div>
+                    <label for="renavam_veiculo">Renavan</label>
+                    <input type="text" id="renavam_veiculo" aria-label="Número do Renavam">
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Dados do Condutor</legend>
+            <div class="input-grid">
+                <div class="full-width">
+                    <label for="nome_condutor">Nome Completo</label>
+                    <input type="text" id="nome_condutor" aria-label="Nome completo do condutor" placeholder="">
+                    <span class="error-message" id="err-nome_condutor"></span>
+                </div>
+                <div>
+                    <label for="cpf_condutor">CPF</label>
+                    <input type="text" id="cpf_condutor" aria-label="CPF do condutor" placeholder="000.000.000-00">
+                </div>
+                <div>
+                    <label for="rg_condutor">RG</label>
+                    <input type="text" id="rg_condutor" aria-label="RG do condutor" placeholder="">
+                </div>
+                
+                <div>
+                    <label for="cep_condutor">CEP</label>
+                    <input type="text" id="cep_condutor" aria-label="CEP do condutor" placeholder="00000-000">
+                </div>
+                <div>
+                    <label for="endereco_condutor">Endereço / n.º</label>
+                    <input type="text" id="endereco_condutor" aria-label="Endereço do condutor" placeholder="Rua, número">
+                </div>
+                <div>
+                    <label for="bairro_condutor">Bairro</label>
+                    <input type="text" id="bairro_condutor" aria-label="Bairro do condutor" placeholder="">
+                </div>
+                <div>
+                    <label for="cidade_condutor">Cidade / UF</label>
+                    <input type="text" id="cidade_condutor" aria-label="Cidade e estado do condutor" placeholder="">
+                </div>
+                
+                <div>
+                    <label for="telefone_condutor">Telefone</label>
+                    <input type="text" id="telefone_condutor" aria-label="Telefone do condutor" placeholder="(00) 00000-0000">
+                </div>
+                <div>
+                    <label for="email_condutor">E-mail</label>
+                    <input type="text" id="email_condutor" aria-label="E-mail do condutor" placeholder="">
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Financeiro e Prazos</legend>
+            <div class="input-grid">
+                <div>
+                    <label for="inicio_contrato">Início da Locação</label>
+                    <input type="text" id="inicio_contrato" aria-label="Data de início da locação" placeholder="dd/mm/aaaa">
+                </div>
+                <div>
+                    <label for="fim_contrato">Término da Locação</label>
+                    <input type="text" id="fim_contrato" aria-label="Data de término da locação" placeholder="dd/mm/aaaa">
+                </div>
+                <div class="full-width">
+                    <label for="valor_mensal">Valor Mensal (R$)</label>
+                    <input type="text" id="valor_mensal" aria-label="Valor mensal da locação" placeholder="0,00">
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="option-card">
+            <div>
+                <strong style="display:block; color:#0f4db2; font-size:15px;">Formulários de Multa em Branco</strong>
+                <span style="font-size:13px; color:#555;">Escolha quantas páginas em branco serão adicionadas para preenchimento manual.</span>
+                <div class="radio-group" id="multaPagesGroup">
+                    <label>
+                        <input type="radio" name="multaPages" value="3" checked> 3 páginas
+                    </label>
+                    <label>
+                        <input type="radio" name="multaPages" value="2"> 2 páginas
+                    </label>
+                    <label>
+                        <input type="radio" name="multaPages" value="1"> 1 página
+                    </label>
+                </div>
+            </div>
+            <label class="switch">
+                <input type="checkbox" id="checkMultaBranco" checked aria-label="Incluir formulários de multa em branco">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="option-card" id="termoInfoCard" hidden>
+            <div>
+                <strong style="display:block; color:#0f4db2; font-size:15px;">Termo de Informações</strong>
+                <span style="font-size:13px; color:#555; display:block; margin-bottom:5px;">Adiciona o contrato extenso (6 páginas) com todas as obrigações e rodapé.</span>
+                
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="termCopies" value="1"> 1 Via
+                </label>
+                <label>
+                    <input type="radio" name="termCopies" value="2" checked> 2 Vias
+                </label>
+            </div>
+            </div>
+            <label class="switch">
+                <input type="checkbox" id="checkTermoExtenso" checked aria-label="Incluir termo extenso">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <button type="button" class="btn-primary" id="btnGerarPDF" onclick="gerarPDF()">Baixar Documentos PDF</button>
+
+    </form>
+
+    <footer>
+        &copy; João Rossi 2026.
+    </footer>
+</div>
+
+<script src="../js/modules/contrato.js" defer></script>
+</body>
+</html>

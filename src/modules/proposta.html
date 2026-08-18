@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta Comercial - Benali Rent a Car</title>
+    
+    <link rel="stylesheet" href="../css/modules/proposta.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
+</head>
+<body>
+
+    <div class="container">
+
+        <header>
+            <div class="logo-area">
+                <img id="header-logo" alt="Benali Rent A Car">
+            </div>
+            <div class="title-area">
+                <h2>Proposta Comercial</h2>
+                <p>Terceirização de Frota</p>
+            </div>
+        </header>
+
+        <div class="document-main">
+            <section>
+                <div style="display: flex; justify-content: space-between; gap: 20px;">
+                    <div style="flex: 1;">
+                        <p style="margin:5px 0;"><small style="color:var(--accent); font-weight:700; text-transform:uppercase;">Cliente</small><br>
+                        <span contenteditable="true" style="font-size:16px; font-weight:600;">Nome da Empresa</span></p>
+                    </div>
+                    <div style="flex: 1;">
+                        <p style="margin:5px 0;"><small style="color:var(--accent); font-weight:700; text-transform:uppercase;">Aos Cuidados de</small><br>
+                        <span contenteditable="true" style="font-size:16px;">Nome do Contato</span></p>
+                    </div>
+                </div>
+                <p style="margin-top:15px;">
+                    <strong>Data:</strong> <span id="data-proposta" contenteditable="true"></span>
+                </p>
+            </section>
+
+            <section>
+                <p>Prezados,</p>
+                <p>A <strong>Benali Rent a Car</strong> tem o prazer de apresentar esta proposta comercial para a terceirização de frota, desenvolvida para atender às necessidades da sua empresa. Nossa solução visa otimizar a gestão de veículos, garantindo eficiência, segurança e uma significativa redução de custos operacionais.</p>
+                <p>Apresentamos abaixo as nossas condições para diferentes modelos de veículos e prazos de contrato, reforçando nosso compromisso em oferecer flexibilidade e o melhor custo-benefício.</p>
+            </section>
+
+            <h2 class="section-title">Veículos e Planos</h2>
+            <p class="text-center" style="margin-bottom: 20px; color: var(--text-muted); font-size: 13px;">
+                * Franquia inclusa: <strong><span contenteditable="true">5.000</span> km/mês</strong> por veículo.
+            </p>
+
+            <table>
+                <thead>
+                <tr>
+                    <th class="th-modelo" style="text-align:left; padding-left:8px;">Modelo</th>
+                    <th class="grupo-12m th-valor-group">12 Meses<small>Valor</small></th>
+                    <th class="grupo-12m th-km-group">12 Meses<small>Km Ex</small></th>
+                    <th class="grupo-18m th-valor-group">18 Meses<small>Valor</small></th>
+                    <th class="grupo-18m th-km-group">18 Meses<small>Km Ex</small></th>
+                    <th class="grupo-24m th-valor-group">24 Meses<small>Valor</small></th>
+                    <th class="grupo-24m th-km-group">24 Meses<small>Km Ex</small></th>
+                    <th class="no-print"></th>
+                </tr>
+            </thead>
+            <tbody id="vehicle-table-body">
+                <tr>
+                    <td class="model-cell"><span contenteditable="true">Strada Endurance 1.3 CS Plus</span></td>
+                    <td class="grupo-12m td-valor-group"><span class="check-valor-12m" contenteditable="true">R$ 4.000,00</span></td>
+                    <td class="grupo-12m"><span contenteditable="true">1,20</span></td>
+                    <td class="grupo-18m td-valor-group"><span class="check-valor-18m" contenteditable="true">R$ 3.850,00</span></td>
+                    <td class="grupo-18m"><span contenteditable="true">1,16</span></td>
+                    <td class="grupo-24m td-valor-group"><span class="check-valor-24m" contenteditable="true">R$ 3.720,00</span></td>
+                    <td class="grupo-24m"><span contenteditable="true">1,12</span></td>
+                    <td class="no-print"><button class="btn-remove" onclick="removeRow(this)">X</button></td>
+                </tr>
+                <tr>
+                    <td class="model-cell"><span contenteditable="true">Strada Freedom 1.3 CD</span></td>
+                    <td class="grupo-12m td-valor-group"><span class="check-valor-12m" contenteditable="true">R$ 4.600,00</span></td>
+                    <td class="grupo-12m"><span contenteditable="true">1,38</span></td>
+                    <td class="grupo-18m td-valor-group"><span class="check-valor-18m" contenteditable="true">R$ 4.430,00</span></td>
+                    <td class="grupo-18m"><span contenteditable="true">1,30</span></td>
+                    <td class="grupo-24m td-valor-group"><span class="check-valor-24m" contenteditable="true">R$ 4.200,00</span></td>
+                    <td class="grupo-24m"><span contenteditable="true">1,26</span></td>
+                    <td class="no-print"><button class="btn-remove" onclick="removeRow(this)">X</button></td>
+                </tr>
+                <tr>
+                    <td class="model-cell"><span contenteditable="true">Saveiro Robust 1.6</span></td>
+                    <td class="grupo-12m td-valor-group"><span class="check-valor-12m" contenteditable="true">R$ 3.900,00</span></td>
+                    <td class="grupo-12m"><span contenteditable="true">1,17</span></td>
+                    <td class="grupo-18m td-valor-group"><span class="check-valor-18m" contenteditable="true">R$ 3.780,00</span></td>
+                    <td class="grupo-18m"><span contenteditable="true">1,14</span></td>
+                    <td class="grupo-24m td-valor-group"><span class="check-valor-24m" contenteditable="true">R$ 3.650,00</span></td>
+                    <td class="grupo-24m"><span contenteditable="true">1,10</span></td>
+                    <td class="no-print"><button class="btn-remove" onclick="removeRow(this)">X</button></td>
+                </tr>
+                <tr>
+                    <td class="model-cell"><span contenteditable="true">Montana LT 1.2 Turbo</span></td>
+                    <td class="grupo-12m td-valor-group"><span class="check-valor-12m" contenteditable="true">R$ 4.900,00</span></td>
+                    <td class="grupo-12m"><span contenteditable="true">1,47</span></td>
+                    <td class="grupo-18m td-valor-group"><span class="check-valor-18m" contenteditable="true">R$ 4.650,00</span></td>
+                    <td class="grupo-18m"><span contenteditable="true">1,41</span></td>
+                    <td class="grupo-24m td-valor-group"><span class="check-valor-24m" contenteditable="true">R$ 4.450,00</span></td>
+                    <td class="grupo-24m"><span contenteditable="true">1,34</span></td>
+                    <td class="no-print"><button class="btn-remove" onclick="removeRow(this)">X</button></td>
+                </tr>
+                <tr>
+                    <td class="model-cell"><span contenteditable="true">Toro Freedom 1.3 Turbo</span></td>
+                    <td class="grupo-12m td-valor-group"><span class="check-valor-12m" contenteditable="true">R$ 5.750,00</span></td>
+                    <td class="grupo-12m"><span contenteditable="true">1,72</span></td>
+                    <td class="grupo-18m td-valor-group"><span class="check-valor-18m" contenteditable="true">R$ 5.600,00</span></td>
+                    <td class="grupo-18m"><span contenteditable="true">1,67</span></td>
+                    <td class="grupo-24m td-valor-group"><span class="check-valor-24m" contenteditable="true">R$ 5.450,00</span></td>
+                    <td class="grupo-24m"><span contenteditable="true">1,63</span></td>
+                    <td class="no-print"><button class="btn-remove" onclick="removeRow(this)">X</button></td>
+                </tr>
+                <tr>
+                    <td class="model-cell"><span contenteditable="true">Onix 1.0 Manual</span></td>
+                    <td class="grupo-12m td-valor-group"><span class="check-valor-12m" contenteditable="true">R$ 3.300,00</span></td>
+                    <td class="grupo-12m"><span contenteditable="true">0,99</span></td>
+                    <td class="grupo-18m td-valor-group"><span class="check-valor-18m" contenteditable="true">R$ 3.150,00</span></td>
+                    <td class="grupo-18m"><span contenteditable="true">0,96</span></td>
+                    <td class="grupo-24m td-valor-group"><span class="check-valor-24m" contenteditable="true">R$ 3.050,00</span></td>
+                    <td class="grupo-24m"><span contenteditable="true">0,91</span></td>
+                    <td class="no-print"><button class="btn-remove" onclick="removeRow(this)">X</button></td>
+                </tr>
+                <tr>
+                    <td class="model-cell"><span contenteditable="true">Onix 1.0 Turbo Manual</span></td>
+                    <td class="grupo-12m td-valor-group"><span class="check-valor-12m" contenteditable="true">R$ 3.650,00</span></td>
+                    <td class="grupo-12m"><span contenteditable="true">1,07</span></td>
+                    <td class="grupo-18m td-valor-group"><span class="check-valor-18m" contenteditable="true">R$ 3.550,00</span></td>
+                    <td class="grupo-18m"><span contenteditable="true">1,05</span></td>
+                    <td class="grupo-24m td-valor-group"><span class="check-valor-24m" contenteditable="true">R$ 3.450,00</span></td>
+                    <td class="grupo-24m"><span contenteditable="true">1,03</span></td>
+                    <td class="no-print"><button class="btn-remove" onclick="removeRow(this)">X</button></td>
+                </tr>
+                <tr>
+                    <td class="model-cell"><span contenteditable="true">HB20 Comfort 1.0</span></td>
+                    <td class="grupo-12m td-valor-group"><span class="check-valor-12m" contenteditable="true">R$ 3.400,00</span></td>
+                    <td class="grupo-12m"><span contenteditable="true">1,11</span></td>
+                    <td class="grupo-18m td-valor-group"><span class="check-valor-18m" contenteditable="true">R$ 3.150,00</span></td>
+                    <td class="grupo-18m"><span contenteditable="true">1,03</span></td>
+                    <td class="grupo-24m td-valor-group"><span class="check-valor-24m" contenteditable="true">R$ 3.050,00</span></td>
+                    <td class="grupo-24m"><span contenteditable="true">0,91</span></td>
+                    <td class="no-print"><button class="btn-remove" onclick="removeRow(this)">X</button></td>
+                </tr>
+                <tr>
+                    <td class="model-cell"><span contenteditable="true">Oroch Pro 1.6 SCE</span></td>
+                    <td class="grupo-12m td-valor-group"><span class="check-valor-12m" contenteditable="true">R$ 4.800,00</span></td>
+                    <td class="grupo-12m"><span contenteditable="true">1,44</span></td>
+                    <td class="grupo-18m td-valor-group"><span class="check-valor-18m" contenteditable="true">R$ 4.700,00</span></td>
+                    <td class="grupo-18m"><span contenteditable="true">1,40</span></td>
+                    <td class="grupo-24m td-valor-group"><span class="check-valor-24m" contenteditable="true">R$ 4.500,00</span></td>
+                    <td class="grupo-24m"><span contenteditable="true">1,35</span></td>
+                    <td class="no-print"><button class="btn-remove" onclick="removeRow(this)">X</button></td>
+                </tr>
+            </tbody>
+            </table>
+            <div class="no-print" style="text-align:right;">
+                <button class="btn-add-row" onclick="addVehicleRow()">+ Adicionar Veículo</button>
+            </div>
+
+            <div id="additional-conditions-section" style="display: none; margin-top: 25px;">
+                <h2 class="section-title">Condições Específicas</h2>
+                <div id="condicoes-texto" contenteditable="true" style="background:#fcfcfc; border:1px dashed #ddd; padding:15px 15px 15px 15px; border-radius:8px; font-size:13px; text-align:left; color:#374151; line-height:1.8; white-space:pre-wrap; min-height:60px; width:100%; box-sizing:border-box;">• Período mínimo de contrato: XX meses.
+• Sujeito à análise de cadastro.
+• Entrega técnica em até XX dias após assinatura.</div>
+            </div>
+
+            <h2 class="section-title">Vantagens Inclusas</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h4>Manutenção</h4>
+                    <p>Cobertura total de manutenções preventivas.</p>
+                </div>
+                <div class="benefit-card">
+                    <h4>Assistência 24h</h4>
+                    <p>Suporte nacional em casos de pane ou sinistro.</p>
+                </div>
+                <div class="benefit-card">
+                    <h4>Veículo Reserva</h4>
+                    <p>Disponível em até 3 dias úteis para eventos de sinistro, perda total, roubo ou furto.</p>
+                </div>
+                <div class="benefit-card">
+                    <h4>Acessórios</h4>
+                    <p>Rádio, insulfilm, rastreador e capota marítima (para picapes).</p>
+                </div>
+            </div>
+
+            <h2 class="section-title">Seguros e Coberturas</h2>
+            <table>
+                <tbody>
+                    <tr>
+                        <td style="text-align: left;"><strong>Danos Materiais (Terceiros)</strong></td>
+                        <td contenteditable="true">R$ 100.000,00</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;"><strong>Danos Corporais (Terceiros)</strong></td>
+                        <td contenteditable="true">R$ 100.000,00</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;"><strong>Danos Morais</strong></td>
+                        <td contenteditable="true">R$ 30.000,00</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;"><strong>Franquia (Perda Parcial)</strong></td>
+                        <td contenteditable="true">10% do valor (FIPE)</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;"><strong>Franquia (PT / Roubo)</strong></td>
+                        <td contenteditable="true">20% do valor (FIPE)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer>
+            <h3>Fale Conosco</h3>
+            <div class="contact-grid">
+                <div>
+                    <div class="contact-group">
+                        <strong>Executivo</strong>
+                        <span>Alex Benali: (44) 3026-4114</span><br>
+                        <a href="mailto:financeiro@benalirentacar.com.br">financeiro@benalirentacar.com.br</a>
+                    </div>
+                    <div class="contact-group">
+                        <strong>Financeiro / Locação</strong>
+                        <span>Vanessa Figueiredo: (44) 99720-6302</span><br>
+                        <a href="mailto:locacao@benalirentacar.com.br">locacao@benalirentacar.com.br</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="contact-group">
+                        <strong>Administrativo</strong>
+                        <span>Jullyane Carmo: (44) 99835-5690</span><br>
+                        <a href="mailto:administrativo@benalirentacar.com.br">administrativo@benalirentacar.com.br</a>
+                    </div>
+                    <div class="contact-group">
+                        <strong>Manutenção</strong>
+                        <span>Marcelo Oliveira: (44) 99725-0304</span><br>
+                        <span>João Rossi:       (44) 99995-7226</span><br>
+                        <a href="mailto:manutencao@benalirentacar.com.br">manutencao@benalirentacar.com.br</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <div class="actions-bar no-print">
+        <button class="btn btn-secondary" onclick="toggleAdditionalConditions()">
+            📝 Condições Extras
+        </button>
+        <button class="btn btn-primary" id="btn-download" onclick="downloadPDF()">
+            ⬇️ Baixar PDF
+        </button>
+    </div>
+
+    <script src="../js/modules/proposta.js" defer></script>
+</body>
+</html>

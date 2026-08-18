@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <title>Robô Unicampo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/modules/robo.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="panel">
+            <div class="icon-header">🤖</div>
+            <h1>Automação Logística</h1>
+            <p class="desc">Acione o robô para realizar a integração automática com o Portal TOTALTRACK.</p>
+            
+            <div class="input-group">
+                <label>Processar vistorias criadas A PARTIR de:</label>
+                <input type="text" id="data_corte" placeholder="DD/MM/AAAA" maxlength="10">
+            </div>
+
+            <div class="input-group">
+                <label>Senha de Autorização:</label>
+                <input type="password" id="senha_master" placeholder="Digite a senha do sistema">
+            </div>
+            
+            <button class="btnPrimary" id="btnIniciar" onclick="chamarRobo()">▶ INICIAR INTEGRAÇÃO</button>
+            
+            <!-- Barra de Progresso do Robô Automático -->
+            <div id="progress_auto" class="progress-box">
+                <div class="progress-header">
+                    <span>Sincronizando com VEX & TotalTrac</span>
+                    <span id="progress_auto_pct" class="progress-pct">0%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div id="progress_auto_fill" class="progress-bar-fill"></div>
+                </div>
+                <div id="progress_auto_msg" class="progress-msg">Conectando...</div>
+            </div>
+
+            <div id="status_msg" class="status-card"></div>
+
+            <hr>
+
+            <!-- SESSÃO: LOTE MANUAL -->
+            <h1>Processamento em Lote</h1>
+            <p class="desc">Cole as placas linha por linha para adicionar ou remover manualmente no TotalTrac.</p>
+            
+            <textarea id="listaPlacas" rows="4" placeholder="Ex:&#10;TAV3F85&#10;TBT8A21&#10;TBP0J50"></textarea>
+
+            <div class="row-buttons">
+                <button class="btnPrimary btnSuccess" id="btnLoteAdd" onclick="enviarLote('adicionar')">➕ Adicionar</button>
+                <button class="btnPrimary btnDanger" id="btnLoteRem" onclick="enviarLote('remover')">🗑️ Remover</button>
+            </div>
+            
+            <!-- Barra de Progresso do Lote Manual -->
+            <div id="progress_lote" class="progress-box">
+                <div class="progress-header">
+                    <span>Processando Placas no TotalTrac</span>
+                    <span id="progress_lote_pct" class="progress-pct">0%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div id="progress_lote_fill" class="progress-bar-fill"></div>
+                </div>
+                <div id="progress_lote_msg" class="progress-msg">Aguardando...</div>
+            </div>
+
+            <div id="statusLote" class="status-card"></div>
+
+        </div>
+    </div>
+
+    <script src="../js/config.js" defer></script>
+    <script src="../js/modules/robo.js" defer></script>
+</body>
+</html>

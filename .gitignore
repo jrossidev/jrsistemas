@@ -1,0 +1,29 @@
+# Segredos, Ambientes e Certificados
+*.env*
+backend/certs/
+detran/
+
+# Scripts de automação local (Windows)
+*.bat
+*.vbs
+
+# Ambiente Python
+backend/venv/
+__pycache__/
+*.pyc
+
+# Downloads temporários e armazenamento de tarefas
+backend/downloads_temp/
+backend/data/
+backend/storage/
+
+# Arquivos temporários, testes e scripts de diagnóstico da raiz
+/crlv_pr.py
+/diagnostico_*.py
+backend/test_*.py
+backend/setup_certificado.md
+
+# Arquivos de backup, zips pesados e logs
+*.zip
+saida*.txt
+visual/

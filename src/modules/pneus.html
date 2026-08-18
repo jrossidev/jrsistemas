@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Pneus</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/modules/robo.css">
+    <style>
+        .result-value {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent-700);
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="panel">
+            <div class="icon-header">🛞</div>
+            <h1>Calculadora de Pneus</h1>
+            <p class="desc">Calcula o valor proporcional a ser cobrado na troca antecipada de pneu(s), com base na quilometragem rodada.</p>
+
+            <div class="input-group">
+                <label>KM da última troca:</label>
+                <input type="number" id="pneu_kmi" placeholder="Digite o KM da troca">
+            </div>
+
+            <div class="input-group">
+                <label>KM atual:</label>
+                <input type="number" id="pneu_kma" placeholder="Digite o KM atual">
+            </div>
+
+            <div class="input-group">
+                <label>Valor do(s) pneu(s):</label>
+                <input type="number" id="pneu_valor" placeholder="Digite o valor em R$">
+            </div>
+
+            <button class="btnPrimary" id="btnPneu" onclick="calcularPneu()">🛞 CALCULAR</button>
+            <div id="status_pneu" class="status-card"></div>
+        </div>
+    </div>
+
+    <script src="../js/modules/pneus.js" defer></script>
+</body>
+</html>

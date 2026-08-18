@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <title>Download CRLV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/modules/robo.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="panel">
+            <div class="icon-header">📄</div>
+            <h1>Download CRLV</h1>
+            <p class="desc">Emite e baixa o CRLV-e (pessoa jurídica) direto do Detran-PR.</p>
+
+            <div class="input-group">
+                <label>Renavam:</label>
+                <input type="text" id="crlv_renavam" placeholder="Ex: 01423266673" inputmode="numeric">
+            </div>
+
+            <div class="input-group">
+                <label>Placa:</label>
+                <input type="text" id="crlv_placa" placeholder="Ex: TAY-7D45" style="text-transform: uppercase;">
+            </div>
+
+            <div class="input-group">
+                <label>CNPJ:</label>
+                <input type="text" id="crlv_cnpj" placeholder="00.000.000/0000-00">
+            </div>
+
+            <div class="input-group">
+                <label>Senha de Autorização:</label>
+                <input type="password" id="senha_master" placeholder="Digite a senha do sistema">
+            </div>
+
+            <button class="btnPrimary" id="btnCrlv" onclick="gerarCrlv()">📄 BAIXAR CRLV-e</button>
+
+            <!-- Barra de Progresso da Emissão CRLV -->
+            <div id="progress_crlv" class="progress-box">
+                <div class="progress-header">
+                    <span>Emissão no Detran-PR</span>
+                    <span id="progress_crlv_pct" class="progress-pct">0%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div id="progress_crlv_fill" class="progress-bar-fill"></div>
+                </div>
+                <div id="progress_crlv_msg" class="progress-msg">Conectando ao Detran-PR...</div>
+            </div>
+
+            <div id="status_crlv" class="status-card"></div>
+
+            <hr>
+
+            <!-- SEÇÃO DE CRLVs JÁ BAIXADOS / EMITIDOS -->
+            <div class="history-section">
+                <div class="history-header">
+                    <h3 class="history-title">📑 CRLVs Emitidos Recentemente</h3>
+                    <button type="button" class="btn-refresh" onclick="carregarHistoricoCrlv()">🔄 Atualizar</button>
+                </div>
+                <div id="history_crlv_list" class="history-list">
+                    <div style="text-align:center; padding:15px; color:#9ca3af; font-size:12px;">Carregando...</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="../js/config.js" defer></script>
+    <script src="../js/modules/crlv.js" defer></script>
+</body>
+</html>

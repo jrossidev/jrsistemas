@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JRSISTEMAS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/css/app.css">
+</head>
+<body>
+
+    <div class="mobile-topbar">
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <strong>JRSISTEMAS</strong>
+    </div>
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <aside>
+        <div class="brand">
+            <div class="brand-icon">⚡</div>
+            <div class="brand-text">
+                <h1>JRSISTEMAS</h1>
+                <p>Gestão Integrada</p>
+            </div>
+        </div>
+
+        <nav>
+            <div class="menu-label">Comercial</div>
+            <button type="button" data-app="proposta">
+                <div class="icon-box">📄</div> Proposta Comercial
+            </button>
+
+            <div class="menu-label">Contratos Jurídicos</div>
+            <button type="button" data-app="contrato">
+                <div class="icon-box">🌳</div> Contrato Unicampo
+            </button>
+            <button type="button" data-app="anexo">
+                <div class="icon-box">📎</div> Contrato PF & PJ
+            </button>
+            <div class="menu-label">Automação Integrada</div>
+            <button type="button" data-app="robo">
+                <div class="icon-box">🤖</div> Robô Unicampo
+            </button>
+            <button type="button" data-app="crlv">
+                <div class="icon-box">📄</div> Download CRLV
+            </button>
+
+            <div class="menu-label">Manutenção</div>
+            <button type="button" data-app="pneus">
+                <div class="icon-box">🛞</div> Calculadora de Pneus
+            </button>
+        </nav>
+    </aside>
+
+    <main>
+        <div id="welcomeScreen" class="welcome">
+            <div class="welcome-content">
+                <div class="welcome-badge">Módulo Administrativo</div>
+                <h2 id="greeting">Olá!</h2>
+                <p>Bem-vindo ao painel. Selecione uma das ferramentas no menu lateral ou use os atalhos rápidos abaixo para começar.</p>
+                
+                <div class="quick-actions">
+                    <button type="button" class="btn-action" data-quick-app="proposta">
+                        ✨ Nova Proposta
+                    </button>
+                    <button type="button" class="btn-action" data-quick-app="contrato">
+                        🌳 Contrato Unicampo
+                    </button>
+                    <button type="button" class="btn-action" data-quick-app="anexo">
+                        📝 Contrato PF&PJ
+                    </button>
+                    <button type="button" class="btn-action" data-quick-app="robo">
+                        🤖 Robô Unicampo
+                    </button>
+                    <button type="button" class="btn-action" data-quick-app="crlv">
+                        📄 Download CRLV
+                    </button>
+                    <button type="button" class="btn-action" data-quick-app="pneus">
+                        🛞 Calculadora de Pneus
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="loader" class="loader-overlay">
+            <div class="spinner"></div>
+            <p>Processando módulo...</p>
+        </div>
+        
+        <iframe id="appFrame" name="appFrame" title="Módulo administrativo"></iframe>
+    </main>
+    <script src="./src/js/app.js" defer></script>
+</body>
+</html>
